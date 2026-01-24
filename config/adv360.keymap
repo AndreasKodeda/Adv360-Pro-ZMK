@@ -6,6 +6,12 @@
 #include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/pointing.h>
 
+#define BASE 0
+#define SYMBOLS 1
+#define LANG 2
+#define NAVIGATION 3
+#define NUM 4
+
 / {
     behaviors {
       #include "macros.dtsi"
