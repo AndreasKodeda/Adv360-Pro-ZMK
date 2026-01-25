@@ -33,15 +33,11 @@
           label = "AE";
           #binding-cells = <0>;
           bindings = <
-              &macro_press   &kp LCTRL &kp LSHIFT
-              &kp U
-              &macro_release &kp LCTRL &kp LSHIFT
-
+              &macro_tap &kp LCTRL &kp LSHIFT &kp U
               &kp N0
               &kp N0
               &kp E
               &kp N4
-
               &kp SPACE
           >;
       };
