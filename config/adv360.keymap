@@ -28,6 +28,18 @@
           flavor = "hold-preferred";
           bindings = <&kp>, <&kp>;
       };
+      umlaut_ae: umlaut_ae {
+          compatible = "zmk,behavior-macro";
+          label = "AE";
+          #binding-cells = <0>;
+          bindings = <
+              &macro_press &kp LCTRL &kp LSHIFT
+              &kp U
+              &macro_release &kp LCTRL &kp LSHIFT
+              &kp N0 &kp N0 &kp E4
+              &kp SPACE
+          >;
+      };
     };
 
   keymap {
@@ -44,13 +56,13 @@
             &kp TAB     &kp Q        &kp W        &kp E          &kp R         &kp T      &none                                                                                             &none   &kp Y    &kp U         &kp I          &kp O        &kp P            &kp BSLH
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                 ╭───────────┬──────────╮  ╭───────────┬────────────╮                 ├───────┼────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │            │            │              │             │          │          │                 │           │          │  │           │            │                 │       │        │             │              │            │               │           │
-            &kp ESC     &hm LGUI A   &hm LALT S   &hm LSHIFT D   &hm LCTRL F   &kp G      &none                        &kp LCTRL   &kp LALT      &kp LGUI     &kp RCTRL                     &none   &kp H    &hm RCTRL J   &hm RSHIFT K   &hm RALT L   &hm RGUI SEMI    &kp SQT
+            &kp DEL     &hm LGUI A   &hm LALT S   &hm LSHIFT D   &hm LCTRL F   &kp G      &none                        &mo LANG    &kp LALT      &kp LGUI     &kp RCTRL                     &none   &kp H    &hm RCTRL J   &hm RSHIFT K   &hm RALT L   &hm RGUI SEMI    &kp SQT
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────╯     ╭───────────┼───────────┼──────────┤  ├───────────┼────────────┼───────────╮     ╰───────┼────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │            │            │              │             │          │                │           │           │          │  │           │            │           │             │        │             │              │            │               │           │
             &kp LSHFT   &kp Z        &kp X        &kp C          &kp V         &kp B                                               &kp HOME      &kp PG_UP                                          &kp N    &kp M         &kp COMMA      &kp DOT      &kp FSLH        &kp RSHFT
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────╯                │           │           ├──────────┤  ├───────────┤            │           │             ╰────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │            │            │              │             │                           │           │           │          │  │           │            │           │                      │             │              │            │               │           │
-            &mo FN      &kp GRAVE    &kp CAPS     &kp LEFT       &kp RIGHT                                 &kp SPACE   &kp DEL     &mo SMB       &mo SMB     &kp ENTER    &kp BSPC                           &kp UP        &kp DOWN       &kp LBKT     &kp RBKT        &mo FN
+            &mo FN      &kp GRAVE    &kp CAPS     &kp LEFT       &kp RIGHT                                 &kp SPACE   &kp ESCAPE  &mo SMB       &mo SMB     &kp ENTER    &kp BSPC                           &kp UP        &kp DOWN       &kp LBKT     &kp RBKT        &mo FN
         //╰───────────┴────────────┴────────────┴──────────────┴─────────────╯                           ╰───────────┴───────────┴──────────╯  ╰───────────┴────────────┴───────────╯                      ╰─────────────┴──────────────┴────────────┴───────────────┴───────────╯
       >;
     };
@@ -62,10 +74,10 @@
             &trans      &trans       &trans       &trans         &trans        &trans     &trans                                                                                           &trans  &trans        &trans        &trans         &trans       &trans          &trans
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                                                                                     ├───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │     &      │     $      │     '        │     #       │          │          │                                                                                     │       │             │     \       │     /        │     :      │               │           │
-            &trans      &kp AMPS     &kp DLLR     &kp APOS       &kp HASH      &kp T      &trans                                                                                           &trans  &trans        &kp BSLH      &kp FSLH       &kp COLON    &trans          &trans
+            &trans      &kp AMPS     &kp DLLR     &kp APOS       &kp HASH      &trans     &trans                                                                                           &trans  &trans        &kp BSLH      &kp FSLH       &kp COLON    &trans          &trans
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                ╭───────────┬──────────╮  ╭───────────┬────────────╮                 ├───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
-        //│           │     \      │     /      │     (        │     )       │     @    │          │                │           │          │  │           │            │                 │       │             │     {       │     }        │     [      │     ]         │           │
-            &trans      &kp BSLH     &kp FSLH     &kp LPAR       &kp RPAR      &kp AT     &trans                      &trans      &trans        &trans      &trans                         &trans  &trans        &kp LBRC      &kp RBRC       &kp LBKT     &kp RBKT        &trans
+        //│           │     \      │     /      │     (        │     )       │     @    │          │                │           │          │  │           │            │                 │       │             │     {       │     }        │     ]      │     [         │           │
+            &trans      &kp BSLH     &kp FSLH     &kp LPAR       &kp RPAR      &kp AT     &trans                      &trans      &trans        &trans      &trans                         &trans  &trans        &kp LBRC      &kp RBRC       &kp RBKT     &kp LBKT        &trans
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────╯     ╭──────────┼───────────┼──────────┤  ├───────────┼────────────┼───────────╮     ╰───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │     <      │     >      │     "        │     =       │          │                │          │           │          │  │           │            │           │             │             │     ;       │    ,         │    .       │               │           │
             &trans      &kp LT       &kp GT       &kp DQT        &kp EQUAL     &trans                                             &trans        &trans                                             &trans        &kp SEMI      &kp COMMA      &kp DOT      &trans          &trans
@@ -86,7 +98,7 @@
             &kp TAB     &kp Q        &kp W        &kp E          &kp R         &kp T      &none                                                                                            &none   &kp Y         &kp U         &kp I          &kp O        &kp P            &kp BSLH
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                ╭───────────┬──────────╮  ╭───────────┬────────────╮                 ├───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │            │            │              │             │          │          │                │           │          │  │           │            │                 │       │             │             │              │            │               │           │
-            &kp ESC     &hm LGUI A   &hm LALT S   &hm LSHIFT D   &hm LCTRL F   &kp G      &none                       &kp LCTRL   &kp LALT      &kp LGUI     &kp RCTRL                     &none   &kp H         &hm RCTRL J   &hm RSHIFT K   &hm RALT L   &hm RGUI SEMI    &kp SQT
+            &kp ESC     &umlaut_ae        &kp S        &kp D          &kp F         &kp G      &none                       &kp LCTRL   &kp LALT      &kp LGUI     &kp RCTRL                     &none   &kp H         &kp J         &kp K          &kp L        &kp SEMI        &kp SQT
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────╯     ╭──────────┼───────────┼──────────┤  ├───────────┼────────────┼───────────╮     ╰───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │            │            │              │             │          │                │          │           │          │  │           │            │           │             │             │             │              │            │               │           │
             &kp LSHFT   &kp Z        &kp X        &kp C          &kp V         &kp B                                              &kp HOME      &kp PG_UP                                          &kp N         &kp M         &kp COMMA      &kp DOT      &kp FSLH        &kp RSHFT
