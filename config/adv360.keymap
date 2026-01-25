@@ -23,8 +23,8 @@
           compatible = "zmk,behavior-hold-tap";
           label = "HOMEROW_MODS";
           #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
+          tapping-term-ms = <120>;
+          quick_tap_ms = <80>;
           flavor = "hold-preferred";
           bindings = <&kp>, <&kp>;
       };
@@ -128,7 +128,7 @@
             &trans      &trans       &trans       &trans         &trans        &trans     &none                                                                                            &none   &kp Y         &kp N7         &kp N8        &kp N9       &kp P            &trans
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                ╭───────────┬──────────╮  ╭───────────┬────────────╮                 ├───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │            │            │              │             │          │          │                │           │          │  │           │            │                 │       │             │             │              │            │               │           │
-            &trans      &hm LGUI A   &hm LALT S   &hm LSHIFT D   &hm LCTRL F   &trans     &none                       &trans      &trans        &trans      &N0                            &none   &kp H         &hm N4        &hm N5         &hm N6       &hm PLUS        &trans
+            &trans      &hm LGUI A   &hm LALT S   &hm LSHIFT D   &hm LCTRL F   &trans     &none                       &trans      &trans        &trans      &N0                            &none   &kp H         &kp N4        &kp N5         &kp N6       &kp PLUS        &trans
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────╯     ╭──────────┼───────────┼──────────┤  ├───────────┼────────────┼───────────╮     ╰───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │            │            │              │             │          │                │          │           │          │  │           │            │           │             │             │             │              │            │               │           │
             &trans      &trans        &trans      &trans          &trans       &trans                                              &trans       &trans                                             &kp N         &kp N1        &kp N2         &kp N3       &kp MINUS        &trans
