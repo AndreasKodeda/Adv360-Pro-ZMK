@@ -28,6 +28,15 @@
           flavor = "hold-preferred";
           bindings = <&kp>, <&kp>;
       };
+      mokp: move_mods {
+          compatible = "zmk,behavior-hold-tap";
+          label = "MOVE_MODS";
+          #binding-cells = <2>;
+          tapping-term-ms = <120>;
+          quick_tap_ms = <80>;
+          flavour = "hold-preferred";
+          bindings = <&mo>, <&kp>;
+      };
     };
 
   keymap {
@@ -41,13 +50,13 @@
             &kp EQUAL   &kp N1       &kp N2       &kp N3         &kp N4        &kp N5     &tog NUM                                                                                          &mo MOD &kp N6   &kp N7        &kp N8        &kp N9       &kp N0           &kp MINUS
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                                                                                      ├───────┼────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │            │            │              │             │          │          │                                                                                      │       │        │             │              │            │               │           │
-            &kp TAB     &kp Q        &kp L        &kp COMMA      &kp P         &none      &none                                                                                             &none   &kp PIPE &kp F         &kp U          &kp D        &kp K           &kp BSLH
+            &kp ESC     &kp Z        &kp L        &kp COMMA      &kp P         &none      &none                                                                                             &none   &kp PIPE &kp F         &kp U          &kp D        &kp X           &kp BSLH
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                 ╭───────────┬──────────╮  ╭───────────┬────────────╮                 ├───────┼────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │            │            │              │             │          │          │                 │           │          │  │           │            │                 │       │        │             │              │            │               │           │
-            &kp ESC     &hm LGUI A   &hm LALT R   &hm LSHIFT E   &hm LCTRL N   &kp B      &none                        &kp LALT    &kp LALT      &kp RALT     &kp RCTRL                     &none   &kp G    &hm RCTRL S   &hm RSHIFT I   &hm RALT T   &hm RGUI O      &kp SQT
+            &kp TAB     &hm LGUI A   &hm LALT R   &hm LSHIFT E   &hm LCTRL N   &kp B      &none                        &kp LALT    &kp LALT      &kp RALT     &kp RCTRL                     &none   &kp G    &hm RCTRL S   &hm RSHIFT I   &hm RALT T   &hm RGUI O      &kp SQT
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────╯     ╭───────────┼───────────┼──────────┤  ├───────────┼────────────┼───────────╮     ╰───────┼────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │            │            │     !        │             │          │                │           │           │          │  │           │            │           │             │        │             │              │            │               │           │
-            &kp LSHFT   &kp Z        &kp W        &kp EXCL       &kp H         &kp J                                               &kp HOME      &none                                              &kp V    &kp C         &kp Y          &kp M        &kp X           &kp RSHFT
+            &kp LSHFT   &kp Q        &kp W        &kp EXCL       &mokp SMB H   &kp J                                               &kp HOME      &none                                              &kp V    &mokp SMB C   &kp Y          &kp M        &kp K           &kp RSHFT
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────╯                │           │           ├──────────┤  ├───────────┤            │           │             ╰────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │            │            │              │             │                           │           │           │          │  │           │            │           │                      │             │              │            │               │           │
             &mo FN      &kp GRAVE    &kp CAPS     &kp LEFT       &kp RIGHT                                 &kp SPACE   &kp LGUI  &mo SMB       &mo SMB     &kp ENTER    &kp BSPC                           &kp UP        &kp DOWN       &kp LBKT     &kp RBKT        &mo FN
