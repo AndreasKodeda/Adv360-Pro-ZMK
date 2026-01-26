@@ -21,20 +21,18 @@
 
       hm: homerow_mods {
           compatible = "zmk,behavior-hold-tap";
-          label = "HOMEROW_MODS";
           #binding-cells = <2>;
           tapping-term-ms = <120>;
-          quick_tap_ms = <80>;
+          quick-tap-ms = <80>;
           flavor = "hold-preferred";
           bindings = <&kp>, <&kp>;
       };
       mokp: move_mods {
           compatible = "zmk,behavior-hold-tap";
-          label = "MOVE_MODS";
           #binding-cells = <2>;
           tapping-term-ms = <120>;
-          quick_tap_ms = <80>;
-          flavour = "hold-preferred";
+          quick-tap-ms = <80>;
+          flavor = "hold-preferred";
           bindings = <&mo>, <&kp>;
       };
     };
