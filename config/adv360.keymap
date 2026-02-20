@@ -183,7 +183,7 @@
             &kp TILDE   &kp LT       &kp PIPE     &kp MINUS      &kp GT        &kp FSLH                                           &none         &none                                              &kp SEMI      &kp DQT       &kp APOS       &kp GRAVE    &kp BSLH        &none
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────╯                │          │           ├──────────┤  ├───────────┤            │           │             ╰─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │ &          │ '          │ "            │ +           │                           │ %        │ :         │ @        │  │           │            │           │                           │ shift       │ ctr          │ alt        │  WIN          │           │
-            &none       &kp AMPS     &kp APOS     &kp DQT        &kp PLUS                                  &kp PRCNT  &kp COLON   &kp AT        &none       &none        &none                                   &kp RSHIFT    &kp RCTRL      &kp RALT     &RGUI          &none
+            &none       &kp AMPS     &kp APOS     &kp DQT        &kp PLUS                                  &kp PRCNT  &kp COLON   &kp AT        &none       &none        &none                                   &kp RSHIFT    &kp RCTRL      &kp RALT     &kp RGUI          &none
         //╰───────────┴────────────┴────────────┴──────────────┴─────────────╯                           ╰──────────┴───────────┴──────────╯  ╰───────────┴────────────┴───────────╯                           ╰─────────────┴──────────────┴────────────┴───────────────┴───────────╯
       >;
     };
