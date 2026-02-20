@@ -142,7 +142,7 @@
             &trans      &trans        &trans      &trans          &none        &none                                              &none         &kp COMMA                                          &kp J         &kp N1        &kp N2         &kp N3       &kp MINUS       &kp ASTRK
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────╯                │          │           ├──────────┤  ├───────────┤            │           │             ╰─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │ undo       │ redo       │ (            │ )           │                           │          │           │          │  │ .         │ =          │           │                           │ {           │ [            │ ]          │ }             │ @         │
-            &trans      &noe         &none        &kp LPAR       &kp RPAR                                  &none      &none       &none         &kp DOT     &kp EQUAL    &kp N0                                  &kp LBRC      &kp LBKT       &kp RBKT     &kp RBRC        &kp AT
+            &trans      &none         &none        &kp LPAR       &kp RPAR                                  &none      &none       &none         &kp DOT     &kp EQUAL    &kp N0                                  &kp LBRC      &kp LBKT       &kp RBKT     &kp RBRC        &kp AT
         //╰───────────┴────────────┴────────────┴──────────────┴─────────────╯                           ╰──────────┴───────────┴──────────╯  ╰───────────┴────────────┴───────────╯                           ╰─────────────┴──────────────┴────────────┴───────────────┴───────────╯
       >;
     };
