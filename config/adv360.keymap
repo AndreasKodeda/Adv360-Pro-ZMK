@@ -13,6 +13,7 @@
 #define NUM 4
 #define FN 5
 #define MOD 6
+#define SMBVIM 7
 
 / {
     behaviors {
@@ -32,7 +33,7 @@
           #binding-cells = <2>;
           tapping-term-ms = <120>;
           quick-tap-ms = <80>;
-          flavor = "hold-preferred";
+          flavor = "tap-preferred";
           bindings = <&mo>, <&kp>;
       };
     };
@@ -50,14 +51,14 @@
         //│           │            │            │              │             │          │          │                                                                                      │       │        │             │              │            │               │           │
             &none       &kp Z        &kp L        &kp COMMA      &kp P         &none      &none                                                                                             &none   &none    &kp F         &kp U          &kp D        &kp X           &none
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                 ╭───────────┬──────────╮  ╭───────────┬────────────╮                 ├───────┼────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
-        //│           │            │            │              │             │          │          │                 │           │          │  │           │            │                 │       │        │             │              │            │               │           │
-            &none       &hm LGUI A   &hm LALT R   &hm LSHIFT E   &hm LCTRL N   &kp B      &none                        &kp PSCRN    &kp INS      &none       &none                          &none   &kp G    &hm RCTRL S   &hm RSHIFT I   &hm RALT T   &hm RGUI O      &none
+        //│ LGUI      │            │            │              │             │          │          │                 │           │          │  │           │            │                 │       │        │             │              │            │               │ LGUI      │
+            &kp LGUI    &hm LGUI A   &hm LALT R   &hm LSHIFT E   &hm LCTRL N   &kp B      &none                        &kp PSCRN    &kp INS      &none       &none                          &none   &kp G    &hm RCTRL S   &hm RSHIFT I   &hm RALT T   &hm RGUI O      &kp LGUI
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────╯     ╭───────────┼───────────┼──────────┤  ├───────────┼────────────┼───────────╮     ╰───────┼────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
         //│           │            │            │     !        │             │          │                │           │           │          │  │           │            │           │             │        │             │              │            │               │           │
             &none       &kp Q        &kp W        &mokp NUM TAB  &mokp SMB H   &kp J                                               &kp HOME      &none                                              &kp V    &mokp SMB C   &kp Y          &kp M        &kp K           &none
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────╯                │           │           ├──────────┤  ├───────────┤            │           │             ╰────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
-        //│           │            │            │              │             │                           │           │           │          │  │           │            │           │                      │             │              │            │               │           │
-            &mo FN      &none        &none        &none          &kp CAPS                                   &kp SPACE   &kp LGUI    &none       &none         &kp ENTER    &kp BSPC                           &none         &none         &none         &none           &mo FN
+        //│           │ { [        │ ] }        │ | \          │             │                           │  nav      │  num      │          │  │           │ mouse      │ smbvim    │                      │             │              │            │               │           │
+            &mo FN      &none        &none        &none          &kp CAPS                                   &mokp NAV SPACE &mokp NUM TAB &none  &none       &kp ENTER    &mokp SMBVIM BSPC                 &none         &none         &none         &none           &mo FN
         //╰───────────┴────────────┴────────────┴──────────────┴─────────────╯                           ╰───────────┴───────────┴──────────╯  ╰───────────┴────────────┴───────────╯                      ╰─────────────┴──────────────┴────────────┴───────────────┴───────────╯
       >;
     };
@@ -107,20 +108,20 @@
       display-name = "nav";
       bindings = <
         //╭───────────┬────────────┬────────────┬──────────────┬─────────────┬──────────┬──────────╮                                                                                     ╭───────┬─────────────┬──────────────┬─────────────┬────────────┬───────────────┬───────────╮
-        //│           │            │            │              │             │          │          │                                                                                     │       │             │              │             │            │               │           │
-            &kp EQUAL   &kp N1       &kp N2       &kp N3         &kp N4        &kp N5     &tog NUM                                                                                         &mo MOD   &kp N6        &kp N7         &kp N8        &kp N9       &kp N0       &kp MINUS
+        //│           │ Escape     │ Insert     │ Shift-Tab    │ Delete      │          │          │                                                                                     │       │             │              │             │            │               │           │
+            &kp EQUAL   &kp ESC       &kp Insert   &none          &kp DELETE   &none      &none                                                                                           &none    &none         &none          &none         &none        &none           &none
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                                                                                     ├───────┼─────────────┼──────────────┼─────────────┼────────────┼───────────────┼───────────┤
-        //│           │            │            │              │             │          │          │                                                                                     │       │             │              │             │            │               │           │
-            &kp TAB     &kp Q        &kp W        &kp E          &kp R         &kp T      &none                                                                                            &none   &kp Y         &kp U         &kp I          &kp O        &kp P            &kp BSLH
+        //│           │ Enter      │ Space      │ Tab          │ backspace   │ cut      │          │                                                                                     │       │ Cut         │ Shift-Tab    │ Undo        │ Redo       │ Tab           │           │
+            &kp TAB     &kp ENTER    &kp SPACE    &kp TAB        &kp BSPC      &kp K_CUT  &none                                                                                            &none   &kp K_CUT     &none         &kp K_UNDO     &kp K_UNDO   &kp TAB         &none
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                ╭───────────┬──────────╮  ╭───────────┬────────────╮                 ├───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
-        //│           │            │            │              │             │          │          │                │           │          │  │           │            │                 │       │             │             │              │            │               │           │
-            &kp ESC     &hm LGUI A   &hm LALT S   &hm LSHIFT D   &hm LCTRL F   &kp G      &none                       &kp LCTRL   &kp LALT      &kp LGUI     &kp RCTRL                     &none   &kp H         &hm RCTRL J   &hm RSHIFT K   &hm RALT L   &hm RGUI SEMI    &kp SQT
+        //│           │            │            │              │             │ copy     │          │                │           │          │  │ extend-line│extend-word│                 │       │ Copy        │ Left        │ Up           │ Down       │ Right         │           │
+            &kp ESC     &kp LGUI     &kp L_ALT    &kp L_SHIFT    &kp LCTRL     &kp K_COPY &none                       &none       &none         &none       &none                          &none   &kp H         &kp LEFT      &kp UP         &kp DOWN     &RIGHT          &none
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────╯     ╭──────────┼───────────┼──────────┤  ├───────────┼────────────┼───────────╮     ╰───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
-        //│           │            │            │              │             │          │                │          │           │          │  │           │            │           │             │             │             │              │            │               │           │
-            &kp LSHFT   &kp Z        &kp X        &kp C          &kp V         &kp B                                              &kp HOME      &kp PG_UP                                          &kp N         &kp M         &kp COMMA      &kp DOT      &kp FSLH        &kp RSHFT
+        //│ Address-Bar│ Select-all│ Select-Line│ Select-word  │ Find        │ paste    │                │          │           │          │  │ sel-none  │            │           │             │ Paste       │ Home        │ Page-Up      │ Page-Down  │ End           │ Adress-Bar│
+            &none       &none        &none        &none          &kp K_FIND    &kp K_PASTE                                        &none         &none                                              &kp K_PASTE   &kp HOME      &kp PG_UP      &kp PG_DN    &kp END         &none
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────╯                │          │           ├──────────┤  ├───────────┤            │           │             ╰─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
-        //│           │            │            │              │             │                           │          │           │          │  │           │            │           │                           │             │              │            │               │           │
-            &mo FN       &kp GRAVE    &kp CAPS     &kp LEFT       &kp RIGHT                                 &kp BSPC   &kp DEL     &kp END       &kp PG_DN   &kp ENTER    &kp SPACE                               &kp UP        &kp DOWN       &kp LBKT     &kp RBKT        &mo FN
+        //│ Search-Bar│ Undo       │ Redo       │ Find-Prev    │ Find-Next   │                           │          │           │          │  │ sel-all   │ sel-line   │ sel-word  │                           │ Find        │ Find-Prev    │ Find-Next  │ Find & Replace│ Search-Bar│
+            &kp C_AC_SEARCH &kp K_UNDO &kp K_REDO &none          &none                                     &none      &none       &none         &none       &none        &none                                   &kp K_FIND    &none          &none        &none           &kp C_AC_SEARCH 
         //╰───────────┴────────────┴────────────┴──────────────┴─────────────╯                           ╰──────────┴───────────┴──────────╯  ╰───────────┴────────────┴───────────╯                           ╰─────────────┴──────────────┴────────────┴───────────────┴───────────╯
       >;
     };
@@ -128,20 +129,20 @@
       display-name = "num";
       bindings = <
         //╭───────────┬────────────┬────────────┬──────────────┬─────────────┬──────────┬──────────╮                                                                                     ╭───────┬─────────────┬──────────────┬─────────────┬────────────┬───────────────┬───────────╮
-        //│           │            │            │              │             │          │          │                                                                                     │       │             │              │             │            │               │           │
-            &trans      &trans       &trans       &trans         &trans        &trans     &tog NUM                                                                                         &mo MOD   &trans        &trans         &trans        &trans       &trans       &trans
+        //│           │            │            │              │             │          │          │                                                                                     │       │ |           │ #            │ $           │ ^          │ ~             │ !         │
+            &trans      &trans       &trans       &trans         &trans        &trans     &none                                                                                           &none    &kp PIPE     &kp HASH        &kp DLLR        &kp CARET   &kp TILDE      &kp EXCL
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                                                                                     ├───────┼─────────────┼──────────────┼─────────────┼────────────┼───────────────┼───────────┤
-        //│           │            │            │              │             │          │          │                                                                                     │       │             │              │             │            │               │           │
-            &trans      &trans       &trans       &trans         &trans        &trans     &none                                                                                            &none   &trans        &kp N7         &kp N8        &kp N9       &trans            &trans
+        //│           │ Escape     │ Insert     │ shift-tab    │ delete      │          │          │                                                                                     │       │ G           │              │             │            │ :             │ %         │
+            &trans      &kp ESCAPE   &kp INSERT   &none          &kp DELETE    &trans     &none                                                                                            &none   &kp G         &kp N7         &kp N8        &kp N9       &kp COLON       &kp PRCNT
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                ╭───────────┬──────────╮  ╭───────────┬────────────╮                 ├───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
-        //│           │            │            │              │             │          │          │                │           │          │  │           │            │                 │       │             │             │              │            │               │           │
-            &trans      &hm LGUI A   &hm LALT S   &hm LSHIFT D   &hm LCTRL F   &trans     &none                       &trans      &trans        &trans      &kp N0                         &none   &trans        &kp N4        &kp N5         &kp N6       &kp KP_PLUS        &trans
+        //│           │ Enter      │ Space      │ Tab          │  Backspace  │ x        │          │                │           │          │  │ <         │ >          │                 │       │ k           │             │              │            │ -             │ +         │
+            &trans      &kp ENTER    &kp SPACE    &kp TAB        &kp BSPC      &kp X      &none                       &trans      &trans        &kp LT      &kp GT                         &none   &kp K        &kp N4        &kp N5         &kp N6       &kp KP_PLUS     &kp PLUS
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────╯     ╭──────────┼───────────┼──────────┤  ├───────────┼────────────┼───────────╮     ╰───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
-        //│           │            │            │              │             │          │                │          │           │          │  │           │            │           │             │             │             │              │            │               │           │
-            &trans      &trans        &trans      &trans          &trans       &trans                                              &trans       &trans                                             &trans        &kp N1        &kp N2         &kp N3       &kp MINUS        &trans
+        //│           │ select-all │ sel-line   │ sel-word     │  find       │          │                │          │           │          │  │ ,         │            │           │             │ j           │             │              │            │               │ *         │
+            &trans      &trans        &trans      &trans          &kp K_FIND   &none                                              &none         &kp COMMA                                          &kp J         &kp N1        &kp N2         &kp N3       &kp MINUS       &kp ASTRK
         //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────╯                │          │           ├──────────┤  ├───────────┤            │           │             ╰─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
-        //│           │            │            │              │             │                           │          │           │          │  │           │            │           │                           │             │              │            │               │           │
-            &trans      &trans       &trans       &trans         &trans                                    &kp SPACE  &kp DEL     &trans        &trans      &kp ENTER    &kp BSPC                                &kp N0        &kp FSLH       &kp STAR     &trans          &mo FN
+        //│           │ undo       │ redo       │ (            │ )           │                           │          │           │          │  │ .         │ =          │           │                           │ {           │ [            │ ]          │ }             │ @         │
+            &trans      &kp K_UNDO   &kp K_REDO   &kp LPAR       &kp RPAR                                  &none      &none       &none         &kp DOT     &kp EQUAL    &kp N0                                  &kp LBRC      &kp LBKT       &kp RBKT     &kp RBRC        &kp AT
         //╰───────────┴────────────┴────────────┴──────────────┴─────────────╯                           ╰──────────┴───────────┴──────────╯  ╰───────────┴────────────┴───────────╯                           ╰─────────────┴──────────────┴────────────┴───────────────┴───────────╯
       >;
     };
@@ -163,6 +164,27 @@
         &studio_unlock &none        &none        &none        &none        &none        &none                   &none &none &bt BT_CLR &none                      &stp STP_BAT &none        &none        &none        &none &none &none
         &none &none        &none        &none        &macro_ver   &none                                      &none &none                                                        &none        &none        &none        &none &none &none
         &none &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none &none &none
+      >;
+    };
+    symbol_vim {
+      display-name = "smbvim";
+      bindings = <
+        //╭───────────┬────────────┬────────────┬──────────────┬─────────────┬──────────┬──────────╮                                                                                     ╭───────┬─────────────┬──────────────┬─────────────┬────────────┬───────────────┬───────────╮
+        //│           │            │ (          │ )            │ ;           │ ,        │          │                                                                                     │       │             │              │             │            │               │           │
+            &trans      &trans       &kp LPAR     &kp RPAR       &kp SEMI      &kp Comma  &none                                                                                            &none   &trans        &trans         &trans        &trans       &trans          &trans
+        //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                                                                                     ├───────┼─────────────┼──────────────┼─────────────┼────────────┼───────────────┼───────────┤
+        //│ !         │ [          │ {          │ }            │ ]           │ ?        │          │                                                                                     │       │ .           │              │ Shifttab    │            │               │           │
+            &kp EXCL    &kp LBKT     &kp LBRC     &kp RBRC       &kp RBKT      &kp QMARK  &none                                                                                            &none   &kp DOT       &kp DEL        &none         &kp INSERT   &kp ESC         &none
+        //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────┤                ╭───────────┬──────────╮  ╭───────────┬────────────╮                 ├───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
+        //│ #         │ ^          │ =          │ _            │ $           │ *        │          │                │ \         │ .        │  │           │            │                 │       │ ,           │             │              │            │               │           │
+            &kp HASH    &kp CARET    &kp EQUAL    &kp UNDER      &kp DLLR      &kp ASTRK  &none                       &BSLH       &DOT          &none       &none                          &none   &kp COMMA     &kp BSPC      &kp TAB        &kp SPACE    &kp ENTER       &none
+        //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────┼──────────╯     ╭──────────┼───────────┼──────────┤  ├───────────┼────────────┼───────────╮     ╰───────┼─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
+        //│ ~         │ <          │  |         │ -            │ >           │ /        │                │          │           │          │  │           │            │           │             │ ;           │ "           │ '            │ `          │ \             │           │
+            &kp TILDE   &kp LT       &kp PIPE     &kp MINUS      &kp GT        &kp FSLH                                           &none         &none                                              &kp SEMI      &kp DQT       &kp APOS       &kp GRAVE    &kp BSLH        &none
+        //├───────────┼────────────┼────────────┼──────────────┼─────────────┼──────────╯                │          │           ├──────────┤  ├───────────┤            │           │             ╰─────────────┼─────────────┼──────────────┼────────────┼───────────────┼───────────┤
+        //│           │ &          │ '          │ "            │ +           │                           │ %        │ :         │ @        │  │           │            │           │                           │ shift       │ ctr          │ alt        │  WIN          │           │
+            &none       &kp AMPS     &kp APOS     &kp DQT        &kp PLUS                                  &kp PRCNT  &kp COLON   &kp AT        &none       &none        &none                                   &kp RSHIFT    &kp RCTRL      &kp RALT     &RGUI          &none
+        //╰───────────┴────────────┴────────────┴──────────────┴─────────────╯                           ╰──────────┴───────────┴──────────╯  ╰───────────┴────────────┴───────────╯                           ╰─────────────┴──────────────┴────────────┴───────────────┴───────────╯
       >;
     };
   };
